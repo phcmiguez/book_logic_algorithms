@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Program Logic and Algorithms with JavaScript</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1>Restaurant JS</h1>
+  <hr>
+  <section>
+    <span>Buffet por quilo R$:</span>
+    <input type="text" name="inBuffet" id="inBuffet">
+    <br>
+    <span>Consumo do cliente (g):</span>
+    <input type="text" name="consumoCliente" id="consumoCliente">
+    <br>
+    <button id="btnCalc">Calcular Preço</button>
+    <hr>
+    <p id="output"></p>
+  </section>
+  <script>
+    const precoBuffet = document.querySelector('#inBuffet')
+    const consumoCliente = document.querySelector('#consumoCliente')
+    const output = document.querySelector('#output')
+    document.querySelector('#btnCalc').addEventListener('click', () => {
+      if(consumoCliente.value != undefined || consumoCliente.value != 0){
+        output.innerText = `Valor a pagar: R$: ${(precoBuffet.value * (consumoCliente.value / 1000)).toFixed(2)}`
+      }
+    })
+  </script>
+</body>
+</html>
