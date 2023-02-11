@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Program Logic and Algorithms with JavaScript</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1>Student Grades</h1>
+  <hr>
+  <section>
+    <p>Student Name:</p>
+    <input type="text" name="input1" id="input1">
+    <p>1st Grade:</p>
+    <input type="text" name="input2" id="input2">
+    <p>2nd Grade:</p>
+    <input type="text" name="input3" id="input3">
+    <br>
+    <br>
+    <button id="btn">Shows avg</button>
+    <br>
+    <p id="output"></p>
+  </section>
+  <script>
+    const inName1 = document.querySelector('#input1')
+    const inName2 = document.querySelector('#input2')
+    const inName3 = document.querySelector('#input3')
+    const btn = document.querySelector('#btn')
+    const output = document.querySelector('#output')
+    
+    btn.addEventListener('click', () => {
+      if(!inName1.value || !inName2.value || !inName3.value){
+        alert('No blank fields are allowed')
+      }else{
+        const avg = (Number(inName2.value) + Number(inName3.value)) / 2
+        output.innerText = avg >= 7 ? `Congrats, ${inName1.value}! You were approved! Score: ${avg}` : `Oh no! You were failed! Score: ${avg}`
+      }
+    })
+    
+  </script>
+</body>
+</html>
