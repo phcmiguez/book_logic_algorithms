@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Program Logic and Algorithms with JavaScript</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Pharmacy JS</h1>
+    <hr />
+    <section>
+      <p>Medicine</p>
+      <input type="text" name="input1" id="input1" />
+      <p>Price $</p>
+      <input type="text" name="input2" id="input2" />
+      <br />
+      <br />
+      <button id="btn">Sale off</button>
+      <br />
+      <p id="output"></p>
+    </section>
+    <script>
+      const inMedName = document.querySelector("#input1");
+      const inMedPrice = document.querySelector("#input2");
+      const btnSale = document.querySelector("#btn");
+      const output = document.querySelector("#output");
+
+      btnSale.addEventListener("click", () => {
+        if (!inMedName.value || !inMedPrice.value) {
+          alert("No blank fields are allowed.");
+        } else {
+          let medValue = inMedPrice.value;
+          if (medValue > 0) {
+            output.innerText = `Sales off ${inMedName.value}!\nTake 2 for $ ${
+              Math.floor(medValue) * 2
+            }`;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
