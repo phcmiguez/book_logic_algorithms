@@ -10,16 +10,16 @@
   </style>
 </head>
 <body>
-  <h1>Script Name JS</h1>
+  <h1>Lan House JS</h1>
   <hr>
   <section>
-    <p>Field 1</p>
+    <p>15 min Price $</p>
     <input type="text" name="input1" id="input1">
-    <p>Field 2</p>
+    <p>Time</p>
     <input type="text" name="input2" id="input2">
     <br>
     <br>
-    <button id="btn">Button</button>
+    <button id="btn">Calc</button>
     <br>
     <p id="output"></p>
   </section>
@@ -28,15 +28,25 @@
     const inName2 = document.querySelector('#input2')
     const btn = document.querySelector('#btn')
     const output = document.querySelector('#output')
-    
+
     btn.addEventListener('click', () => {
       if(!inName1.value || !inName2.value){
         alert('No blank fields are allowed')
       }else{
         //logic goes here
+        const mins = Math.floor(inName2.value / 15)
+        const extra = Math.floor(inName2.value % 15)
+        let finalPrice = 0
+
+        if(extra){
+          finalPrice = inName1.value * (mins + 1)
+        }else{
+          finalPrice = inName1.value * mins
+        }
+        output.innerText = `You need to pay: $ ${finalPrice.toFixed(2)}`
       }
     })
-    
+
   </script>
 </body>
 </html>
