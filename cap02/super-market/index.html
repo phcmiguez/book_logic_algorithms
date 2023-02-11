@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Program Logic and Algorithms with JavaScript</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1>Super market JS</h1>
+  <hr>
+  <section>
+    <p>Product</p>
+    <input type="text" name="input1" id="input1">
+    <p>Price $</p>
+    <input type="text" name="input2" id="input2">
+    <br>
+    <br>
+    <button id="btn">Shows sales</button>
+    <br>
+    <p id="output"></p>
+  </section>
+  <script>
+    const inName1 = document.querySelector('#input1')
+    const inName2 = document.querySelector('#input2')
+    const btn = document.querySelector('#btn')
+    const output = document.querySelector('#output')
+    
+    btn.addEventListener('click', () => {
+      if(!inName1.value || !inName2.value){
+        alert('No blank fields are allowed')
+      }else{
+        output.innerText = `${inName1.value} - Big Sales Off! - Take 3 for only $ ${((inName2.value * 2) + (inName2.value / 2)).toFixed(2)}\n 3rd product costs only $ ${(inName2.value / 2).toFixed(2)}!`
+      }
+    })
+    
+  </script>
+</body>
+</html>
