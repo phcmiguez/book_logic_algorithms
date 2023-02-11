@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Program Logic and Algorithms with JavaScript</title>
+</head>
+<body>
+  <section>
+    <h1>Imc Calculator</h1>
+    <hr>
+    <p>Name:</p>
+    <input type="text" name="name" id="name">
+    <p>Genre:</p>
+    <input type="radio" name="genre" id="genreM" value="M">
+    <label for="genreM">M</label>
+    <input type="radio" name="genre" id="genreF" value="F">
+    <label for="genreF">F</label>
+    <p>Height:</p>
+    <input type="text" name="height" id="height">
+    <br>
+    <br>
+    <button id="calc">Calc IMC</button>
+    <button id="clear">Clear</button>
+    <p id="output"></p>
+  </section>
+  <script>
+    const inName = document.querySelector('#name')
+    const inGenreM = document.querySelector('#genreM')
+    const inGenreF = document.querySelector('#genreF')
+    const inHeight = document.querySelector('#height')
+    const btnCalc = document.querySelector('#calc')
+    const btnClear = document.querySelector('#clear')
+    const output = document.querySelector('#output')
+    let idealWeight = 0
+
+    btnCalc.addEventListener('click', () => {
+      if(inName.value == "" || (!inGenreF.checked && !inGenreM.checked) || (isNaN(inHeight.value) || inHeight.value == 0)){
+        alert('Fill correctly all fields')
+      }else{
+        if(inGenreM.checked){
+          idealWeight = 22 * (inHeight.value ** 2)
+        }else{
+          idealWeight = 21 * (inHeight ** 2)
+        }
+        output.innerText = `Your ideal weight is ${idealWeight.toFixed(2)} kg, ${inName.value}.`
+      }
+    })
+
+  </script>
+</body>
+</html>
